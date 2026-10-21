@@ -34,6 +34,7 @@ class RobotMonitor(Node):
         self.temperature_publisher.publish(temperature_msg)
 
         self.get_logger().info(
+            f'Robot Status | '
             f'Battery: {self.battery:.1f}% | '
             f'Temperature: {self.temperature:.1f} C'
         )
