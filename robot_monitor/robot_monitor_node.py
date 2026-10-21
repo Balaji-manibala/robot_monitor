@@ -21,6 +21,7 @@ class RobotMonitor(Node):
         self.temperature = 48.0
 
         self.timer = self.create_timer(1.0, self.publish_status)
+        self.get_logger().info('Robot Monitor is ready')
 
     def publish_status(self):
         self.battery = random.uniform(15.0, 100.0)
