@@ -16,8 +16,8 @@ class RobotMonitor(Node):
             Float32, '/robot/temperature_celsius', 10
         )
 
-        self.battery = 85.0
-        self.temperature = 35.0
+        self.battery = 65.0
+        self.temperature = 38.0
 
         self.timer = self.create_timer(1.0, self.publish_status)
 
