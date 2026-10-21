@@ -16,8 +16,8 @@ class RobotMonitor(Node):
             Float32, '/robot/temperature_celsius', 10
         )
 
-        self.battery = 65.0
-        self.temperature = 38.0
+        self.battery = 25.0
+        self.temperature = 48.0
 
         self.timer = self.create_timer(1.0, self.publish_status)
 
@@ -35,6 +35,11 @@ class RobotMonitor(Node):
             f'Temperature: {self.temperature:.1f} C'
         )
 
+        if self.battery < 30.0:
+            self.get_logger().warning('LOW BATTERY!')
+
+        if self.temperature > 40.0:
+            self.get_logger().warning('HIGH TEMPERATURE!')
 
 def main(args=None):
     rclpy.init(args=args)
